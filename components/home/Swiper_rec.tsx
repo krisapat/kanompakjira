@@ -24,7 +24,7 @@ const menuItems = [
   { name: 'อินทผลัม', price: '35 บาท', image: '/img/swiper_rec/อินทผลัม.png'},
 ]
 
-export default function swiper_rec() {
+export default function Swiper_rec() {
   const prevRef = useRef(null)
   const nextRef = useRef(null)
   const [activeIndex, setActiveIndex] = useState(0)
