@@ -1,8 +1,9 @@
-"use client"
+'use client'
 
-import * as motion from "motion/react-client"
-import { useEffect, useState } from "react"
-import type { Transition } from "motion"
+import * as motion from 'motion/react-client'
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import type { Transition } from 'motion'
 
 export default function Reordering() {
   const [order, setOrder] = useState(initialOrder)
@@ -13,19 +14,21 @@ export default function Reordering() {
   }, [order])
 
   return (
-    <ul className="grid gap-4 w-full max-w-screen-md px-4 mx-auto 
-                   grid-cols-2 md:grid-cols-4">
+    <ul className="grid gap-4 w-full max-w-screen-md px-4 mx-auto grid-cols-2 md:grid-cols-4">
       {order.map((imageUrl) => (
         <motion.li
           key={imageUrl}
           layout
           transition={spring}
-          className="aspect-square rounded-md overflow-hidden"
+          className="aspect-square relative rounded-md overflow-hidden"
         >
-          <img
+          <Image
             src={imageUrl}
             alt="snack"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 50vw, 25vw"
+            priority={false} // true ถ้าอยากโหลดภาพแรกเร็ว
           />
         </motion.li>
       ))}
@@ -34,10 +37,10 @@ export default function Reordering() {
 }
 
 const initialOrder: string[] = [
-  "/img/slider/1.png",
-  "/img/slider/2.png",
-  "/img/slider/3.png",
-  "/img/slider/4.png",
+  '/img/slider/1.png',
+  '/img/slider/2.png',
+  '/img/slider/3.png',
+  '/img/slider/4.png',
 ]
 
 function shuffle([...array]: string[]): string[] {
@@ -45,7 +48,7 @@ function shuffle([...array]: string[]): string[] {
 }
 
 const spring: Transition = {
-  type: "spring",
+  type: 'spring',
   damping: 20,
   stiffness: 300,
 }
