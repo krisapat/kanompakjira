@@ -8,28 +8,29 @@ import { Button } from '@/components/ui/button'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import Image from 'next/image'
+import type { Swiper as SwiperType } from 'swiper'
+
 
 const menuItems = [
-  { name: 'กล้วยกวน', price: '35 บาท', image: '/img/swiper_rec/กล้วยกวน.png'},
-  { name: 'กล้วยอบม้วน', price: '35 บาท', image: '/img/swiper_rec/กล้วยอบม้วน.png'},
-  { name: 'ขนมไข่กรอบ', price: '35 บาท', image: '/img/swiper_rec/ขนมไข่กรอบ.png'},
-  { name: '3 ขนุนอบกรอบ', price: '35 บาท', image: '/img/swiper_rec/ขนุนอบกรอบ.png'},
-  { name: 'ข้าวเกรียบปลาหมึก', price: '35 บาท', image: '/img/swiper_rec/ข้าวเกรียบปลาหมึก.png'},
-  { name: 'คุกกี้สิงคโปร์', price: '35 บาท', image: '/img/swiper_rec/คุกกี้สิงคโปร์.png'},
-  { name: 'เค้กไต้หวัน', price: '35 บาท', image: '/img/swiper_rec/เค้กไต้หวัน.png'},
-  { name: 'ปลาหวานแผ่น', price: '35 บาท', image: '/img/swiper_rec/ปลาหวานแผ่น.png'},
-  { name: 'ปลาหวานเส้น', price: '35 บาท', image: '/img/swiper_rec/ปลาหวานเส้น.png'},
-  { name: 'ผัดหมี่โคราช', price: '35 บาท', image: '/img/swiper_rec/ผัดหมี่โคราช.png'},
-  { name: 'เวเฟอร์สติ๊ก(โอโจ้)', price: '35 บาท', image: '/img/swiper_rec/เวเฟอร์สติ๊ก(โอโจ้).png'},
-  { name: 'อินทผลัม', price: '35 บาท', image: '/img/swiper_rec/อินทผลัม.png'},
+  { name: 'กล้วยกวน', price: '35 บาท', image: '/img/swiper_rec/กล้วยกวน.png' },
+  { name: 'กล้วยอบม้วน', price: '35 บาท', image: '/img/swiper_rec/กล้วยอบม้วน.png' },
+  { name: 'ขนมไข่กรอบ', price: '35 บาท', image: '/img/swiper_rec/ขนมไข่กรอบ.png' },
+  { name: '3 ขนุนอบกรอบ', price: '35 บาท', image: '/img/swiper_rec/ขนุนอบกรอบ.png' },
+  { name: 'ข้าวเกรียบปลาหมึก', price: '35 บาท', image: '/img/swiper_rec/ข้าวเกรียบปลาหมึก.png' },
+  { name: 'คุกกี้สิงคโปร์', price: '35 บาท', image: '/img/swiper_rec/คุกกี้สิงคโปร์.png' },
+  { name: 'เค้กไต้หวัน', price: '35 บาท', image: '/img/swiper_rec/เค้กไต้หวัน.png' },
+  { name: 'ปลาหวานแผ่น', price: '35 บาท', image: '/img/swiper_rec/ปลาหวานแผ่น.png' },
+  { name: 'ปลาหวานเส้น', price: '35 บาท', image: '/img/swiper_rec/ปลาหวานเส้น.png' },
+  { name: 'ผัดหมี่โคราช', price: '35 บาท', image: '/img/swiper_rec/ผัดหมี่โคราช.png' },
+  { name: 'เวเฟอร์สติ๊ก(โอโจ้)', price: '35 บาท', image: '/img/swiper_rec/เวเฟอร์สติ๊ก(โอโจ้).png' },
+  { name: 'อินทผลัม', price: '35 บาท', image: '/img/swiper_rec/อินทผลัม.png' },
 ]
 
-export default function Swiper_rec() {
-  const prevRef = useRef(null)
-  const nextRef = useRef(null)
+export default function Swiper_pro() {
+  const prevRef = useRef<HTMLButtonElement>(null)
+  const nextRef = useRef<HTMLButtonElement>(null)
   const [activeIndex, setActiveIndex] = useState(0)
-  const [swiperInstance, setSwiperInstance] = useState<any>(null)
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0)
+  const [swiperInstance, setSwiperInstance] = useState<SwiperType | null>(null)
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth)
@@ -37,18 +38,33 @@ export default function Swiper_rec() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  )
+
   useEffect(() => {
-    if (swiperInstance && prevRef.current && nextRef.current) {
+    if (
+      swiperInstance &&
+      prevRef.current &&
+      nextRef.current &&
+      typeof swiperInstance.params.navigation !== 'boolean' &&
+      swiperInstance.params.navigation
+    ) {
       swiperInstance.params.navigation.prevEl = prevRef.current
       swiperInstance.params.navigation.nextEl = nextRef.current
-      swiperInstance.navigation.destroy()
-      swiperInstance.navigation.init()
-      swiperInstance.navigation.update()
+
+      // ตรวจว่า navigation พร้อมใช้งาน
+      if (swiperInstance.navigation) {
+        swiperInstance.navigation.destroy()
+        swiperInstance.navigation.init()
+        swiperInstance.navigation.update()
+      }
     }
-  }, [swiperInstance, prevRef.current, nextRef.current])
+  }, [swiperInstance])
 
   return (
     <div className="w-[90%] mx-auto relative overflow-visible">
+      {/* Navigation Buttons */}
       <Button
         ref={prevRef}
         className="absolute top-1/2 left-0 transform -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center text-black shadow-lg transition-colors duration-300 hover:bg-[#d72e5e] hover:text-white focus:outline-none focus:ring-4 focus:ring-black/30 cursor-pointer"
@@ -64,18 +80,16 @@ export default function Swiper_rec() {
       >
         <ChevronRight size={28} />
       </Button>
+
+      {/* Swiper */}
       <Swiper
         key={windowWidth}
         modules={[Autoplay, Navigation]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
-        navigation={{
-          prevEl: prevRef.current,
-          nextEl: nextRef.current,
-        }}
-        onSwiper={setSwiperInstance}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         loop
         spaceBetween={20}
+        onSwiper={setSwiperInstance}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
         breakpoints={{
           0: { slidesPerView: 1 },
           768: { slidesPerView: 2 },
@@ -104,10 +118,11 @@ export default function Swiper_rec() {
               <p className="text-pink-600 font-bold text-xl">{item.price}</p>
             </div>
           </SwiperSlide>
-
         ))}
       </Swiper>
-      <div className="flex justify-center gap-2">
+
+      {/* Dots */}
+      <div className="flex justify-center gap-2 mt-2">
         {menuItems.map((_, idx) => (
           <div
             key={idx}
