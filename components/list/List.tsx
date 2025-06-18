@@ -71,7 +71,7 @@ export default function List({
                   onClick={() => setModalSnack(snack)}
                   className="text-sm text-white bg-[linear-gradient(180deg,#ed7f53,#d72e5e)] px-4 py-2 rounded-md shadow-md"
                 >
-                  ดูรายละเอียดเพิ่มเติม
+                  ดูรายละเอียด
                 </button>
               </div>
             </div>

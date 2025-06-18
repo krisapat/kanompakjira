@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <main>
-      <div className="w-full px-10 py-25">
+      <div className="w-full px-2 md:px-10 py-25">
         <AnimatedText
           text="รายการสินค้า"
           className="text-5xl lg:text-6xl text-center font-bold text-gray-800 mb-4"

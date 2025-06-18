@@ -16,21 +16,21 @@ export const metadata: Metadata = {
 const page = () => {
   return (
     <main>
-      <section id="Home" className="w-full min-h-screen flex flex-col-reverse md:flex-row items-center justify-center px-6 md:px-20 py-12 gap-8">
+      <section id="Home" className="w-full min-h-screen flex flex-col-reverse md:flex-row items-center justify-center mt-10 sm:mt-0 px-6 md:px-20 py-12 gap-8">
         {/* Left Content */}
         <div className="w-full md:w-1/2 text-center md:text-left z-10">
           <AnimatedText
             text="ขนมภัคจิรา"
-            className="text-5xl lg:text-6xl font-bold text-gray-800 mb-4"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4"
           />
           <AnimatedText
             text="ศูนย์รวมขนมทานเล่นและผลไม้แปรรูปจากทั่วไทย คัดสรรคุณภาพจากโรงงานโดยตรง ในราคาส่งสุดคุ้ม มีบริการขายสินค้าราคาส่งสำหรับร้านค้าและผู้ประกอบการ ถูกจริง ส่งไว พร้อมจัดส่งทั่วประเทศ มั่นใจได้ทั้งเรื่องรสชาติและบริการ"
-            className="text-gray-600 text-lg lg:text-xl mb-6"
+            className="text-gray-600 text-md md:text-lg lg:text-xl mb-6"
           />
           <FadeUpWhenVisible>
             <div className="flex justify-center md:justify-start gap-4">
               <Button
-                className="bg-[linear-gradient(180deg,#ed7f53,#d72e5e)] text-lg text-white p-6 py-8 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
+                className="bg-[linear-gradient(180deg,#ed7f53,#d72e5e)] text-md md:text-lg text-white p-4 py-6 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
                 asChild
               >
                 <Link href={'/list'}><CiShoppingBasket />ดูสินค้าทั้งหมด</Link>
@@ -38,7 +38,7 @@ const page = () => {
 
               <Button
                 variant="outline"
-                className="border-[#d72e5e] text-[#d72e5e] hover:bg-[#fce8ee] text-lg p-6 py-8 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
+                className="border-[#d72e5e] text-[#d72e5e] hover:bg-[#fce8ee] text-md md:text-lg p-4 py-6 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
                 asChild
               >
                 <Link href={'#promotion'}>ดูโปรโมชั่น</Link>
@@ -59,7 +59,7 @@ const page = () => {
           <div className="relative z-10 bg-[#fff3f5] rounded-md p-10 shadow-2xl">
             <AnimatedText
               text="หมวดหมู่ขนม"
-              className="text-5xl lg:text-6xl text-center font-bold text-gray-800 mb-4"
+              className="text-3xl md:text-5xl lg:text-6xl text-center font-bold text-gray-800 mb-4"
             />            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
                 { icon: '🍌', title: 'ผลไม้แปรรูป', color: 'bg-yellow-100' },
@@ -88,12 +88,12 @@ const page = () => {
       <section id="promotion" className="w-full min-h-screen flex flex-col items-center justify-center">
         <AnimatedText
           text="โปรโมชั่นประจำเดือน"
-          className="text-5xl lg:text-6xl text-center font-bold text-gray-800 mt-4"
+          className="text-3xl md:text-5xl lg:text-6xl text-center font-bold text-gray-800 mt-4"
         />
         <Swiper_pro />
         <div className="flex justify-center md:justify-start gap-4 mt-5">
           <Button
-            className="bg-[linear-gradient(180deg,#ed7f53,#d72e5e)] text-lg text-white p-6 py-8 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
+            className="bg-[linear-gradient(180deg,#ed7f53,#d72e5e)] text-md md:text-lg text-white p-4 py-6 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
             asChild
           >
             <Link href={'/list'}>ดูสินค้าทั้งหมด</Link>
@@ -101,7 +101,7 @@ const page = () => {
 
           <Button
             variant="outline"
-            className="border-[#d72e5e] text-[#d72e5e] hover:bg-[#fce8ee] text-lg p-6 py-8 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
+            className="border-[#d72e5e] text-[#d72e5e] hover:bg-[#fce8ee] text-md md:text-lg p-4 py-6 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
             asChild
           >
             <Link href={'#reccoment'}>ดูสินค้าแนะนำ</Link>
@@ -111,12 +111,12 @@ const page = () => {
       <section id="reccoment" className="w-full min-h-screen flex flex-col items-center justify-center">
         <AnimatedText
           text="ของอร่อยห้ามพลาด"
-          className="text-5xl lg:text-6xl text-center font-bold text-gray-800 mt-4"
+          className="text-3xl md:text-5xl lg:text-6xl text-center font-bold text-gray-800 mt-4"
         />
         <Swiper_rec />
         <div className="flex justify-center md:justify-start gap-4 mt-5">
           <Button
-            className="bg-[linear-gradient(180deg,#ed7f53,#d72e5e)] text-lg text-white p-6 py-8 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
+            className="bg-[linear-gradient(180deg,#ed7f53,#d72e5e)] text-md md:text-lg text-white p-4 py-6 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
             asChild
           >
             <Link href={'/list'}>ดูสินค้าทั้งหมด</Link>
@@ -124,7 +124,7 @@ const page = () => {
 
           <Button
             variant="outline"
-            className="border-[#d72e5e] text-[#d72e5e] hover:bg-[#fce8ee] text-lg p-6 py-8 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
+            className="border-[#d72e5e] text-[#d72e5e] hover:bg-[#fce8ee] text-md md:text-lg p-4 py-6 rounded-md shadow-lg transform transition-transform duration-200 hover:scale-105"
             asChild
           >
             <Link href={'#promotion'}>ดูโปรโมชั่น</Link>
@@ -136,7 +136,7 @@ const page = () => {
           <div className="relative z-10 bg-white rounded-md p-10 shadow-2xl">
             <AnimatedText
               text="สั่งเลยที่"
-              className="text-4xl md:text-5xl text-center font-extrabold mb-10"
+              className="text-3xl md:text-5xl lg:text-6xl text-center font-extrabold mb-10"
             />
 
             <div className="flex flex-col md:flex-row gap-10">
@@ -145,7 +145,7 @@ const page = () => {
                 href="https://www.facebook.com/kanompakjira4289"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-w-[320px] flex items-center gap-4 bg-blue-600 hover:bg-blue-700 transition-all transform duration-200 hover:scale-105 rounded-md px-8 py-6 shadow-lg"
+                className="w-full max-w-[320px] flex items-center gap-4 bg-blue-600 hover:bg-blue-700 transition-all transform duration-200 hover:scale-105 rounded-md px-8 py-6 shadow-lg"
               >
                 <FaFacebookF className="w-10 h-10 text-white" />
                 <div>
@@ -159,7 +159,7 @@ const page = () => {
                 href="https://line.me/ti/p/~0819949699"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="min-w-[320px] flex items-center gap-4 bg-green-500 hover:bg-green-600 transform transition-all duration-200 hover:scale-105 rounded-md px-8 py-6 shadow-lg"
+                className="w-full max-w-[320px] flex items-center gap-4 bg-green-500 hover:bg-green-600 transform transition-all duration-200 hover:scale-105 rounded-md px-8 py-6 shadow-lg"
               >
                 <SiLine className="w-10 h-10 text-white" />
                 <div>
