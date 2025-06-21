@@ -4,6 +4,7 @@
 import { useState } from 'react'
 import Seach from './Seach'
 import List from './List'
+import ScrollToTopButton from './ScrollToTopButton'
 
 
 export default function SnackPage() {
@@ -27,7 +28,7 @@ export default function SnackPage() {
         categoryFilter={categoryFilter}
         priceFilter={priceFilter}
       />
-
+<ScrollToTopButton />
     </div>
   )
 }
