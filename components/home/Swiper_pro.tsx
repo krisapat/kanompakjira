@@ -11,11 +11,10 @@ import Image from 'next/image'
 import type { Swiper as SwiperType } from 'swiper'
 
 const menuItems = [
-  { name: 'ปลาหวานแผ่น', price: '35 บาท', image: '/img/swiper_pro/ปลาหวานแผ่น.png', description: '3 ห่อ 100 บาท' },
-  { name: 'ไข่กรอบ', price: '35 บาท', image: '/img/swiper_pro/ไข่กรอบ.png', description: '3 ห่อ 100 บาท' },
-  { name: 'ข้าวเกรียบปลาหมึก', price: '35 บาท', image: '/img/swiper_pro/ข้าวเกรียบปลาหมึก.png', description: '3 ห่อ 100 บาท' },
-  { name: 'กล้วยอบเนย', price: '35 บาท', image: '/img/swiper_pro/กล้วยอบเนย.png', description: '3 ห่อ 100 บาท' },
-  { name: 'มะขามแก้ว', price: '35 บาท', image: '/img/swiper_pro/มะขามแก้ว.png', description: '3 ห่อ 100 บาท' },
+  { name: 'ปลาหวานแผ่น', price: '35 บาท', image: '/img/swiper_pro/โปร1.png', description: '40 ห่อฟรี 2 ห่อ' },
+  { name: 'ไข่กรอบ', price: '35 บาท', image: '/img/swiper_pro/โปร2.png', description: 'ราคาส่ง 27 บาท' },
+  { name: 'บ๊วยผลไม้คัดพิเศษ', price: '139 บาท', image: '/img/swiper_pro/โปร3.png', description: '1 กก. 139 บาทส่งฟรี' },
+  { name: 'ขาไก่ 3 รส', price: '99 บาท', image: '/img/swiper_pro/โปร4.png', description: '750 กรัม 99 บาทส่งฟรี' },
 ]
 
 export default function Swiper_pro() {
